@@ -52,10 +52,11 @@ typedef struct file_s
 } file_t;
 
 extern file_t file;
-extern stack_t stack;
-extern unsigned int top;
 
 void get_content(char *argv);
 int check_input(char *str);
+void push_stack(stack_t **stack, int num);
+void pall_stack(stack_t **stack);
+int handel_string(char *str, stack_t **stack);
 
 #endif
