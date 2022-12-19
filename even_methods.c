@@ -19,5 +19,5 @@ int handel_string(char *str, stack_t **stack)
 	}
 	else if (result == 2)
 		pall_stack(stack);
-	exit(1);
+	return (0);
 }
