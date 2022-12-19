@@ -50,7 +50,7 @@ void pall_stack(stack_t **stack)
 
 	while (tmp->next != NULL)
 	{
-		dprintf(STDOUT_FILENO, "%d\n", tmp->n);
+		printf("%d\n", tmp->n);
 		tmp = tmp->next;
 	}
 }
