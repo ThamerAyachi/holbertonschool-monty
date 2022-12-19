@@ -48,7 +48,7 @@ void pall_stack(stack_t **stack)
 
 	tmp = (*stack);
 
-	while (tmp != NULL)
+	while (tmp->next != NULL)
 	{
 		dprintf(STDOUT_FILENO, "%d\n", tmp->n);
 		tmp = tmp->next;
