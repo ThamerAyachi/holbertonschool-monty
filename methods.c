@@ -54,3 +54,19 @@ void pall_stack(stack_t **stack)
 		tmp = tmp->next;
 	}
 }
+
+/**
+ * free_stack - free stack as linked list
+ * @stack: stack
+ */
+void free_stack(stack_t *stack)
+{
+	stack_t *tmp;
+
+	tmp = stack;
+	if (tmp != NULL)
+	{
+		free_stack(tmp->next);
+		free(tmp);
+	}
+}

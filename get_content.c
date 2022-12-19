@@ -18,6 +18,9 @@ void get_content(char *argv)
 				continue;
 			handel_string(file.content, &stack);
 		}
+		free(file.content);
+		free_stack(stack);
+		fclose(file.fs);
 	}
 	else
 	{
