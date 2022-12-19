@@ -1,10 +1,10 @@
 #include "monty.h"
 
-void get_contact(char *argv)
+void get_content(char *argv)
 {
 	size_t buf_size = 0;
 	int counter = 0;
-	char *arguments;
+	char *arguments, *param;
 
 	file.fs = fopen(argv, "r");
 	if (file.fs)
@@ -18,7 +18,8 @@ void get_contact(char *argv)
 				free(arguments);
 				continue;
 			}
-			printf("%s\n", arguments);
+			else if (*arguments == '#')
+				continue;
 		}
 	}
 	else

@@ -53,6 +53,7 @@ typedef struct file_s
 
 extern file_t file;
 
-void get_contact(char *argv);
+void get_content(char *argv);
+int check_input(char *str);
 
 #endif
