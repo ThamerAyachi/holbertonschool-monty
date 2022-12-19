@@ -61,12 +61,9 @@ void pall_stack(stack_t **stack)
  */
 void free_stack(stack_t *stack)
 {
-	stack_t *tmp;
-
-	tmp = stack;
-	if (tmp != NULL)
+	if (stack->next != NULL)
 	{
-		free_stack(tmp->next);
-		free(tmp);
+		free_stack(stack->next);
+		free(stack);
 	}
 }
