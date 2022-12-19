@@ -1,6 +1,8 @@
 #include "monty.h"
 
 file_t file;
+stack_t *stack;
+unsigned int top = 0;
 
 int main(int argc, char *argv[])
 {
