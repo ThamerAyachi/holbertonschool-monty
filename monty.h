@@ -51,4 +51,8 @@ typedef struct file_s
 	char *content;
 } file_t;
 
+extern file_t file;
+
+void get_contact(char *argv);
+
 #endif
