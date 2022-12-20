@@ -41,10 +41,8 @@ int is_digit(char *str)
 
 	if (tmp == NULL)
 		return (1);
-	if (*tmp == '-')
-		(*tmp)++;
 	for (; *tmp != '\0'; tmp++)
-		if (*tmp < '0' || *tmp > '9')
+		if ((*tmp < '0' || *tmp > '9') && *tmp != '-')
 			return (1);
 	return (0);
 }
