@@ -30,6 +30,8 @@ int handel_string(char *str, stack_t **stack, int line, file_t file)
 	}
 	else if (result == 2)
 		pall_stack(stack);
+	else if (result == 3)
+		pop_stack(stack, line, file);
 	else
 	{
 		dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", line, comm);

@@ -11,6 +11,8 @@ int check_input(char *str)
 		return (1);
 	if (strcmp(str, "pall") == 0)
 		return (2);
+	if (strcmp(str, "pop") == 0)
+		return (3);
 
 	return (0);
 }
@@ -66,4 +68,32 @@ void free_stack(stack_t *stack)
 		free_stack(stack->next);
 		free(stack);
 	}
+}
+
+/**
+ * pop_stack - remove last element from stack
+ * @stack: stack
+ * @line: integer
+ */
+void pop_stack(stack_t **stack, int line, file_t file)
+{
+	stack_t *tmp;
+
+	tmp = malloc(sizeof(stack_t));
+	if (tmp == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: malloc failed\n");
+		frees_and_exit(stack, file);
+	}
+
+	if (*stack == NULL)
+	{
+		dprintf(STDERR_FILENO, "L%u: can't pop an empty stack\n", line);
+		frees_and_exit(stack, file);
+	}
+
+	tmp = (*stack);
+	(*stack) = (*stack)->next;
+	free((*stack)->prev);
+	free(tmp);
 }
