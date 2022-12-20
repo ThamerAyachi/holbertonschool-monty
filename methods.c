@@ -77,22 +77,12 @@ void free_stack(stack_t *stack)
  */
 void pop_stack(stack_t **stack, int line, file_t file)
 {
-	stack_t *tmp;
-
-	tmp = malloc(sizeof(stack_t));
-	if (tmp == NULL)
-	{
-		dprintf(STDERR_FILENO, "Error: malloc failed\n");
-		frees_and_exit(stack, file);
-	}
-
 	if (*stack == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%u: can't pop an empty stack\n", line);
 		frees_and_exit(stack, file);
 	}
 
-	tmp = (*stack);
 	(*stack) = (*stack)->next;
 	free((*stack)->prev);
 }
