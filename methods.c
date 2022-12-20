@@ -15,6 +15,8 @@ int check_input(char *str)
 		return (3);
 	if (strcmp(str, "pint") == 0)
 		return (4);
+	if (strcmp(str, "nop") == 0)
+		return (5);
 
 	return (0);
 }

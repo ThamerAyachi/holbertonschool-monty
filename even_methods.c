@@ -34,7 +34,7 @@ int handel_string(char *str, stack_t **stack, int line, file_t file)
 		pop_stack(stack, line, file);
 	else if (result == 4)
 		pint_stack(stack, line, file);
-	else
+	else if (result != 5)
 	{
 		dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", line, comm);
 		frees_and_exit(stack, file);
