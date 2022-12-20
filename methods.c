@@ -77,7 +77,7 @@ void free_stack(stack_t *stack)
  */
 void pop_stack(stack_t **stack, int line, file_t file)
 {
-	if (*stack == NULL)
+	if ((*stack)->next == NULL || stack == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%u: can't pop an empty stack\n", line);
 		frees_and_exit(stack, file);
