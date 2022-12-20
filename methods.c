@@ -95,5 +95,4 @@ void pop_stack(stack_t **stack, int line, file_t file)
 	tmp = (*stack);
 	(*stack) = (*stack)->next;
 	free((*stack)->prev);
-	free(tmp);
 }
