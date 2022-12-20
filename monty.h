@@ -57,7 +57,7 @@ void get_content(char *argv);
 int check_input(char *str);
 void push_stack(stack_t **stack, int num);
 void pall_stack(stack_t **stack);
-int handel_string(char *str, stack_t **stack, int line);
+int handel_string(char *str, stack_t **stack, int line, file_t file);
 void free_stack(stack_t *stack);
 int is_digit(char *str);
 

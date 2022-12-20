@@ -18,7 +18,7 @@ void get_content(char *argv)
 			}
 			else if (*file.content == '#')
 				continue;
-			handel_string(file.content, &stack, line);
+			handel_string(file.content, &stack, line, file);
 		}
 		free(file.content);
 		free_stack(stack);

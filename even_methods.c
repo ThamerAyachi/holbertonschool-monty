@@ -1,6 +1,6 @@
 #include "monty.h"
 
-int handel_string(char *str, stack_t **stack, int line)
+int handel_string(char *str, stack_t **stack, int line, file_t file)
 {
 	char *comm;
 	int result;
@@ -13,8 +13,14 @@ int handel_string(char *str, stack_t **stack, int line)
 	if (result == 1)
 	{
 		comm = strtok(NULL, " \n\t\r");
-		if (comm == NULL)
-			return (1);
+		if (comm == NULL || is_digit(comm) != 0)
+		{
+			dprintf(STDERR_FILENO, "L%u: usage: push integer\n", line);
+			free_stack(*stack);
+			free(file.content);
+			fclose(file.fs);
+			exit(EXIT_FAILURE);
+		}
 		push_stack(stack, atoi(comm));
 	}
 	else if (result == 2)
@@ -31,12 +37,12 @@ int is_digit(char *str)
 {
 	char *tmp = str;
 
-	if (str == NULL)
+	if (tmp == NULL)
 		return (1);
-	if (*str == '-')
-		*str++;
-	for (; *str != '\0'; str++)
-		if (*str < '0' || *str > '9')
+	if (*tmp == '-')
+		(*tmp)++;
+	for (; *tmp != '\0'; tmp++)
+		if (*tmp < '0' || *tmp > '9')
 			return (1);
 	return (0);
 }
