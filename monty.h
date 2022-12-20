@@ -60,5 +60,6 @@ void pall_stack(stack_t **stack);
 int handel_string(char *str, stack_t **stack, int line, file_t file);
 void free_stack(stack_t *stack);
 int is_digit(char *str);
+void frees_and_exit(stack_t **stack, file_t file);
 
 #endif

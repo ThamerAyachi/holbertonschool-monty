@@ -16,15 +16,17 @@ int handel_string(char *str, stack_t **stack, int line, file_t file)
 		if (comm == NULL || is_digit(comm) != 0)
 		{
 			dprintf(STDERR_FILENO, "L%u: usage: push integer\n", line);
-			free_stack(*stack);
-			free(file.content);
-			fclose(file.fs);
-			exit(EXIT_FAILURE);
+			frees_and_exit(stack, file);
 		}
 		push_stack(stack, atoi(comm));
 	}
 	else if (result == 2)
 		pall_stack(stack);
+	else
+	{
+		dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", line, comm);
+		frees_and_exit(stack, file);
+	}
 	return (0);
 }
 
@@ -45,4 +47,17 @@ int is_digit(char *str)
 		if (*tmp < '0' || *tmp > '9')
 			return (1);
 	return (0);
+}
+
+/**
+ * frees_and_exit - free element and exit
+ * @stack: stack
+ * @file: file
+ */
+void frees_and_exit(stack_t **stack, file_t file)
+{
+	free_stack(*stack);
+	free(file.content);
+	fclose(file.fs);
+	exit(EXIT_FAILURE);
 }
