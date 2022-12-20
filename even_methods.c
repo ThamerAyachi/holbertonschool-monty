@@ -1,5 +1,13 @@
 #include "monty.h"
 
+/**
+ * handel_string - check string
+ * @str: string
+ * @stack: stack
+ * @line: integer
+ * @file: file
+ * Return: integer
+ */
 int handel_string(char *str, stack_t **stack, int line, file_t file)
 {
 	char *comm;

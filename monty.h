@@ -51,8 +51,6 @@ typedef struct file_s
 	char *content;
 } file_t;
 
-extern file_t file;
-
 void get_content(char *argv);
 int check_input(char *str);
 void push_stack(stack_t **stack, int num);

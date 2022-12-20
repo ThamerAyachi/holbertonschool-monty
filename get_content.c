@@ -1,5 +1,9 @@
 #include "monty.h"
 
+/**
+ * get_content - get content from file
+ * @argv: name of file
+ */
 void get_content(char *argv)
 {
 	size_t buf_size = 0;
