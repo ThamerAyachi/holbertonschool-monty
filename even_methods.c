@@ -32,6 +32,8 @@ int handel_string(char *str, stack_t **stack, int line, file_t file)
 		pall_stack(stack);
 	else if (result == 3)
 		pop_stack(stack, line, file);
+	else if (result == 4)
+		pint_stack(stack, line, file);
 	else
 	{
 		dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", line, comm);
@@ -68,4 +70,21 @@ void frees_and_exit(stack_t **stack, file_t file)
 	free(file.content);
 	fclose(file.fs);
 	exit(EXIT_FAILURE);
+}
+
+/**
+ * pint_stack - print last element from stack
+ * @stack: stack
+ * @line: integer
+ * @file: file
+ */
+void pint_stack(stack_t **stack, int line, file_t file)
+{
+	if ((*stack)->next == NULL || stack == NULL)
+	{
+		dprintf(STDERR_FILENO, "L%u: can't pint, stack empty\n", line);
+		frees_and_exit(stack, file);
+	}
+	else
+		printf("%d\n", (*stack)->n);
 }

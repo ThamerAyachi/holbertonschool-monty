@@ -62,5 +62,6 @@ void free_stack(stack_t *stack);
 int is_digit(char *str);
 void frees_and_exit(stack_t **stack, file_t file);
 void pop_stack(stack_t **stack, int line, file_t file);
+void pint_stack(stack_t **stack, int line, file_t file);
 
 #endif

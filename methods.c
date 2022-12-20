@@ -13,6 +13,8 @@ int check_input(char *str)
 		return (2);
 	if (strcmp(str, "pop") == 0)
 		return (3);
+	if (strcmp(str, "pint") == 0)
+		return (4);
 
 	return (0);
 }
@@ -74,6 +76,7 @@ void free_stack(stack_t *stack)
  * pop_stack - remove last element from stack
  * @stack: stack
  * @line: integer
+ * @file: file
  */
 void pop_stack(stack_t **stack, int line, file_t file)
 {
