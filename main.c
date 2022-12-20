@@ -1,5 +1,7 @@
 #include "monty.h"
 
+file_t file;
+
 /**
  * main - entry place
  * @argc: integer
