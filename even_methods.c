@@ -36,6 +36,8 @@ int handel_string(char *str, stack_t **stack, int line, file_t file)
 		pint_stack(stack, line, file);
 	else if (result == 6)
 		swap_stack(stack, line, file);
+	else if (result == 7)
+		add_stack(stack, line, file);
 	else if (result != 5)
 	{
 		dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", line, comm);
