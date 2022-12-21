@@ -12,7 +12,7 @@ void add_stack(stack_t **stack, int line, file_t file)
 
 	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%u: can't swap, stack too short\n", line);
+		dprintf(STDERR_FILENO, "L%u: can't add, stack too short\n", line);
 		frees_and_exit(stack, file);
 	}
 
