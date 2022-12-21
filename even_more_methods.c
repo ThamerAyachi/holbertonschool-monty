@@ -19,5 +19,7 @@ void add_stack(stack_t **stack, int line, file_t file)
 	tmp += (*stack)->n;
 	tmp += (*stack)->next->n;
 
-	push_stack(stack, tmp);
+	(*stack)->next->n = tmp;
+	(*stack) = (*stack)->next;
+	free((*stack)->prev);
 }
