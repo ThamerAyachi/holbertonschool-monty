@@ -31,6 +31,8 @@ int check_input(char *str)
 		return (10);
 	if (strcmp(str, "mod") == 0)
 		return (11);
+	if (strcmp(str, "#") == 0)
+		return (0);
 
 	return (99);
 }
