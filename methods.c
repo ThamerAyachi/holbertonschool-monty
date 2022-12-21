@@ -23,6 +23,8 @@ int check_input(char *str)
 		return (7);
 	if (strcmp(str, "sub") == 0)
 		return (8);
+	if (strcmp(str, "div") == 0)
+		return (9);
 
 	return (0);
 }
