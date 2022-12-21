@@ -39,6 +39,8 @@ int handel_string(char *str, stack_t **stack, int line, file_t file)
 		sub_stack(stack, line, file);
 	else if (result == 9)
 		div_stack(stack, line, file);
+	else if (result == 10)
+		mul_stack(stack, line, file);
 	else if (result != 0)
 	{
 		dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", line, command);

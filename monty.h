@@ -67,5 +67,6 @@ void swap_stack(stack_t **stack, int line, file_t file);
 void add_stack(stack_t **stack, int line, file_t file);
 void sub_stack(stack_t **stack, int line, file_t file);
 void div_stack(stack_t **stack, int line, file_t file);
+void mul_stack(stack_t **stack, int line, file_t file);
 
 #endif

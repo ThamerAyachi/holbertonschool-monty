@@ -27,6 +27,8 @@ int check_input(char *str)
 		return (8);
 	if (strcmp(str, "div") == 0)
 		return (9);
+	if (strcmp(str, "mul") == 0)
+		return (10);
 
 	return (0);
 }
