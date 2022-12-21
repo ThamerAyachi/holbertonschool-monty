@@ -29,6 +29,8 @@ int check_input(char *str)
 		return (9);
 	if (strcmp(str, "mul") == 0)
 		return (10);
+	if (strcmp(str, "mod") == 0)
+		return (11);
 
 	return (99);
 }

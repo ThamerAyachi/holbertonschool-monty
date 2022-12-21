@@ -99,3 +99,32 @@ void mul_stack(stack_t **stack, int line, file_t file)
 	(*stack) = (*stack)->next;
 	free((*stack)->prev);
 }
+
+/**
+ * mod_stack - add new element the mod of last two element
+ * @stack: stack
+ * @line: integer
+ * @file: file
+ */
+void mod_stack(stack_t **stack, int line, file_t file)
+{
+	int tmp = 0;
+
+	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
+	{
+		dprintf(STDERR_FILENO, "L%u: can't mod, stack too short\n", line);
+		frees_and_exit(stack, file);
+	}
+
+	tmp += (*stack)->next->n;
+	if ((*stack)->n == 0)
+	{
+		dprintf(STDERR_FILENO, "L%u: division by zero\n", line);
+		frees_and_exit(stack, file);
+	}
+	tmp %= (*stack)->n;
+
+	(*stack)->next->n = tmp;
+	(*stack) = (*stack)->next;
+	free((*stack)->prev);
+}
