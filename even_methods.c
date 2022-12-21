@@ -10,23 +10,20 @@
  */
 int handel_string(char *str, stack_t **stack, int line, file_t file)
 {
-	char *comm;
+	char *command;
 	int result;
 
-	comm = strtok(str, " \n\t\r");
-	if (comm == NULL)
-		return (1);
-
-	result = check_input(comm);
+	command = strtok(str, " \n\t\r");
+	result = check_input(command);
 	if (result == 1)
 	{
-		comm = strtok(NULL, " \n\t\r");
-		if (comm == NULL || is_digit(comm) != 0)
+		command = strtok(NULL, " \n\t\r");
+		if (command == NULL || is_digit(command) != 0)
 		{
 			dprintf(STDERR_FILENO, "L%u: usage: push integer\n", line);
 			frees_and_exit(stack, file);
 		}
-		push_stack(stack, atoi(comm));
+		push_stack(stack, atoi(command));
 	}
 	else if (result == 2)
 		pall_stack(stack);
@@ -42,9 +39,9 @@ int handel_string(char *str, stack_t **stack, int line, file_t file)
 		sub_stack(stack, line, file);
 	else if (result == 9)
 		div_stack(stack, line, file);
-	else if (result != 5)
+	else if (result != 0)
 	{
-		dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", line, comm);
+		dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", line, command);
 		frees_and_exit(stack, file);
 	}
 	return (0);

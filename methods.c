@@ -7,6 +7,8 @@
  */
 int check_input(char *str)
 {
+	if (str == NULL)
+		return (0);
 	if (strcmp(str, "push") == 0)
 		return (1);
 	if (strcmp(str, "pall") == 0)
@@ -16,7 +18,7 @@ int check_input(char *str)
 	if (strcmp(str, "pint") == 0)
 		return (4);
 	if (strcmp(str, "nop") == 0)
-		return (5);
+		return (0);
 	if (strcmp(str, "swap") == 0)
 		return (6);
 	if (strcmp(str, "add") == 0)
