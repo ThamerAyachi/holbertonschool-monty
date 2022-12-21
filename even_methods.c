@@ -101,7 +101,7 @@ void swap_stack(stack_t **stack, int line, file_t file)
 {
 	int tmp;
 
-	if ((*stack)->next == NULL || (*stack) == NULL)
+	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%u: can't swap, stack too short\n", line);
 		frees_and_exit(stack, file);
