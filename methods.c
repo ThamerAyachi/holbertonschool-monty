@@ -21,6 +21,8 @@ int check_input(char *str)
 		return (6);
 	if (strcmp(str, "add") == 0)
 		return (7);
+	if (strcmp(str, "sub") == 0)
+		return (8);
 
 	return (0);
 }

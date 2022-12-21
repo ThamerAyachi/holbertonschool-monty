@@ -65,5 +65,6 @@ void pop_stack(stack_t **stack, int line, file_t file);
 void pint_stack(stack_t **stack, int line, file_t file);
 void swap_stack(stack_t **stack, int line, file_t file);
 void add_stack(stack_t **stack, int line, file_t file);
+void sub_stack(stack_t **stack, int line, file_t file);
 
 #endif
