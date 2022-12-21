@@ -34,6 +34,8 @@ int handel_string(char *str, stack_t **stack, int line, file_t file)
 		pop_stack(stack, line, file);
 	else if (result == 4)
 		pint_stack(stack, line, file);
+	else if (result == 6)
+		swap_stack(stack, line, file);
 	else if (result != 5)
 	{
 		dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n", line, comm);
@@ -87,4 +89,25 @@ void pint_stack(stack_t **stack, int line, file_t file)
 	}
 	else
 		printf("%d\n", (*stack)->n);
+}
+
+/**
+ * swap_stack - swap the last two elements in stack
+ * @stack: stack
+ * @line: integer
+ * @file: file
+ */
+void swap_stack(stack_t **stack, int line, file_t file)
+{
+	int tmp;
+
+	if ((*stack)->next == NULL || (*stack) == NULL)
+	{
+		dprintf(STDERR_FILENO, "L%u: can't swap, stack too short\n", line);
+		frees_and_exit(stack, file);
+	}
+
+	tmp = (*stack)->n;
+	(*stack)->n = (*stack)->next->n;
+	(*stack)->next->n = tmp;
 }

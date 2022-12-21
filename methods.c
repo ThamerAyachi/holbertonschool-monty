@@ -17,6 +17,8 @@ int check_input(char *str)
 		return (4);
 	if (strcmp(str, "nop") == 0)
 		return (5);
+	if (strcmp(str, "swap") == 0)
+		return (6);
 
 	return (0);
 }
