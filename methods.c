@@ -30,7 +30,7 @@ int check_input(char *str)
 	if (strcmp(str, "mul") == 0)
 		return (10);
 
-	return (0);
+	return (99);
 }
 
 /**
